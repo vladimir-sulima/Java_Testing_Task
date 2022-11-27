@@ -6,10 +6,10 @@ public class Main {
     }
     private static String getCharOccurrences(String templateString, String stringToAnalyse) {
 
-        if (templateString == null || templateString.isEmpty() || templateString.trim().isEmpty()){
+        if (templateString == null || templateString.trim().isEmpty()){
             return "Template string is null or empty. It is not possible to compare with undefined value";
         }
-        if (stringToAnalyse == null || stringToAnalyse.isEmpty() || stringToAnalyse.trim().isEmpty()){
+        if (stringToAnalyse == null || stringToAnalyse.trim().isEmpty()){
             return "String to analyse is null or empty. It is not possible to compare with undefined value";
         }
         else {
@@ -73,12 +73,17 @@ public class Main {
         return sortedHashMap;
     }
     private static String combineResultString(HashMap<Character, Integer> sortedHashMap) {
-        String result = "";
-
-        for (Map.Entry<Character, Integer> entry : sortedHashMap.entrySet()) {
-            result = result + entry.getKey() + entry.getValue();
+        if (sortedHashMap.size() == 0){
+            return "There is no characters occurrence";
         }
+        else {
+            String result = "";
 
-        return result;
+            for (Map.Entry<Character, Integer> entry : sortedHashMap.entrySet()) {
+                result = result + entry.getKey() + entry.getValue();
+            }
+
+            return result;
+        }
     }
 }
